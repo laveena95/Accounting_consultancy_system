@@ -1,6 +1,8 @@
 <template>
 <v-container fluid>
-    <div style="border-left:5px solid teal"><h1 class="text-center font-weight-regular">CHECK OUR REFERENCES</h1></div>
+    <div>
+        <h1 class="text-center font-weight-regular;">CHECK OUR REFERENCES</h1>
+    </div>
         <h2 class="body-1 text-center">
             Our clientele includes a diverse group of partnerships, limited liability companies, associations and foundations, and our customer turnover is limited.
         </h2>

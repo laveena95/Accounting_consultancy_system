@@ -20,8 +20,10 @@ export default {
     CalComponent,
   },
 
-  data: () => ({
-    //
-  }),
+  data: () => {
+      return {
+         
+      }
+      }
 };
 </script>
