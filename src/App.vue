@@ -3,6 +3,7 @@
    <ReasonComponent/>
    <ReferenceComponent/>
    <CalComponent/>
+   <test/>
   </v-app>
 </template>
 
@@ -10,6 +11,7 @@
 import ReasonComponent from './components/ReasonComponent';
 import ReferenceComponent from './components/ReferenceComponent';
 import CalComponent from './components/CalComponent';
+import test from './components/test';
 
 export default {
   name: 'App',
@@ -18,6 +20,7 @@ export default {
     ReasonComponent,
     ReferenceComponent,
     CalComponent,
+    test,
   },
 
   data: () => {
