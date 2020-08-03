@@ -1,27 +1,17 @@
 <template>
-  <div>
-      <v-row>
-          <v-col cols="12" md="6">
-               <NumberInputSpinner
-                :min="0"
-                :max="10"
-                :step="10"
-                :integerOnly="true"
-                v-model="yourVModel"
-                size="small"
-                />
-          </v-col>
-      </v-row>
-  
-  </div>
+  <v-container>
+      <v-row style="background-color: red">tyfyt</v-row>
+      <v-divider></v-divider>
+      <v-row style="background-color: green">566e</v-row>
+  </v-container>
 </template>
 
 <script>
-  import NumberInputSpinner from 'vue-number-input-spinner'
-
 export default {
-  components: {
-    NumberInputSpinner,
-  },
+
 }
 </script>
+
+<style>
+
+</style>
