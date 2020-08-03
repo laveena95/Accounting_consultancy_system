@@ -1,12 +1,12 @@
 <template>
     <v-layout row align-center justify-center class="ma-1">
-            <v-card class="mt-6" width="600" height=""  align="center" justify="center">
+            <v-card class="mt-6" width="600" height=""  align="center" justify="center" elevation="5">
                 <v-card-title primary-title class="layout justify-center"><h2>Laske hinta-arvio 2 minuutissa!</h2></v-card-title>
                 <v-card-text class="body-2">
                     Hae yrityksesi tilanteeseen parhaiten sopiva taloushallinnon palvelu.Et sitoudu mihinkään!
                 </v-card-text>
                     <v-container>
-                        <v-row >
+                        <v-row class="mx-3">
                             <v-col cols="12" sm="6" >
                                 <v-input class="caption">
                                     MYYNTI EUROINA / VUOSI

@@ -1,175 +1,71 @@
 <template>
-    <v-layout row align-center justify-center class="ma-1">
-            <v-card class="mt-6" width="600" height=""  align="center" justify="center">
-                <v-card-title primary-title class="layout justify-center"><h2>Laske hinta-arvio 2 minuutissa!</h2></v-card-title>
-                <v-card-text class="body-2">
-                    Hae yrityksesi tilanteeseen parhaiten sopiva taloushallinnon palvelu.Et sitoudu mihinkään!
-                </v-card-text>
-                    <v-container>
-                        <v-row >
-                            <v-col cols="12" sm="6" >
-                                <v-input class="caption">
-                                    MYYNTI EUROINA / VUOSI
-                                    <v-tooltip right>
-                                        <template v-slot:activator="{ on, attrs }">
-                                            <v-btn
-                                            color="primary"
-                                            class="mt-n8" fab dark x-small
-                                            v-bind="attrs"
-                                            v-on="on"
-                                            > <v-icon v-on="on">mdi-help</v-icon></v-btn>
-                                        </template>
-                                        <span >
-                                            <p class="caption" style="width:100px;">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </span>
-                                    </v-tooltip>
-                                </v-input>
-                            </v-col>
-                            <v-col  cols="12" sm="6">
-                                <v-select
-                                :items="items"
-                                    label="select your range"
-                                placeholder="Ex: 75,000 - 100,000"
-                                rounded
-                                outlined
-                                ></v-select>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <v-input class="caption">
-                                    PALKKALASKELMAT/KK
-                                    <v-tooltip right>
-                                        <template v-slot:activator="{ on, attrs }">
-                                            <v-btn
-                                            color="primary"
-                                            class="mt-n8" fab dark x-small
-                                            v-bind="attrs"
-                                            v-on="on"
-                                            > <v-icon v-on="on">mdi-help</v-icon></v-btn>
-                                        </template>
-                                        <span >
-                                            <p class="caption" style="width:100px;">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            </p>
-                                        </span>
-                                    </v-tooltip>
-                                </v-input>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <div>
-                                    <NumberInputSpinner
-                                    :min="0"
-                                    :max="100"
-                                    :step="1"
-                                    :integerOnly="true"
-                                    v-model="yourVModel"
-                                    />
-                                </div>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <v-input class="caption">
-                                    PALKKALASKELMAT/KK
-                                    <v-tooltip right>
-                                        <template v-slot:activator="{ on, attrs }">
-                                            <v-btn
-                                            color="primary"
-                                            class="mt-n8" fab dark x-small
-                                            v-bind="attrs"
-                                            v-on="on"
-                                            > <v-icon v-on="on">mdi-help</v-icon></v-btn>
-                                        </template>
-                                        <span >
-                                            <p class="caption" style="width:100px;">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            </p>
-                                        </span>
-                                    </v-tooltip>
-                                </v-input>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <div>
-                                    <NumberInputSpinner
-                                    :min="0"
-                                    :max="100"
-                                    :step="1"
-                                    :integerOnly="true"
-                                    v-model="yourVModel"
-                                    />
-                                </div>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <v-input class="caption">
-                                    PALKKALASKELMAT/KK
-                                    <v-tooltip right>
-                                        <template v-slot:activator="{ on, attrs }">
-                                            <v-btn
-                                            color="primary"
-                                            class="mt-n8" fab dark x-small
-                                            v-bind="attrs"
-                                            v-on="on"
-                                            > <v-icon v-on="on">mdi-help</v-icon></v-btn>
-                                        </template>
-                                        <span >
-                                            <p class="caption" style="width:100px;">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            </p>
-                                        </span>
-                                    </v-tooltip>
-                                </v-input>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <div>
-                                <NumberInputSpinner
-                                :min="0"
-                                :max="100"
-                                :step="1"
-                                :integerOnly="true"
-                                v-model="number"
-                                />
-                                </div>
-                            </v-col>
-                            <v-col cols="12">
-                                    <v-text-field
-                                    label="Email"
-                                    v-model="email"
-                                    :rules="emailRules"
-                                    rounded
-                                    outlined
-                                    color="primary"
-                                ></v-text-field>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-            </v-card>
-    </v-layout>
+  <div id="app">
+      <transition appear="" name="slide-in">
+        <h1>gallery</h1>
+      </transition>
+      <div class="grid-wrapper">
+                  <v-card v-for="item in cards" :key="item.img" class="mx-auto" width="200" height="200">
+                    <v-img :src="item.img" size="100">
+                    </v-img>
+                </v-card>
+      </div>
+  </div>
 </template>
 
 <script>
-import NumberInputSpinner from 'vue-number-input-spinner'
-  export default {
-       components: {
-    NumberInputSpinner,
-  },
-    data: () => ({
-        email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-     
-      select: null,
-      items: [
-        '-',
-        '0 - 75,000',
-        '75,000 - 100,000',
-        '100,000 - 125,000',
-        '125,000 - 150,000',
-        '150,000 - 200,000'
-      ],
-    }),
-  }
+export default {
+ data: () => {
+     return{
+         cards: [
+                {img: require('../assets/img/1.jpg'), grid: 'card-2-1'},
+                {img: require('../assets/img/2.jpg'), grid: 'card-1-1'},
+                {img: require('../assets/img/3.jpg'), grid: 'card-1-1'},
+                {img: require('../assets/img/4.jpg'), grid: 'card-2-1'},
+                {img: require('../assets/img/5.jpg'), grid: 'card-1-1'},
+                {img: require('../assets/img/1.jpg'), grid: 'card-1-1'},
+         ]
+     }
+ }
+}
 </script>
-<style scoped>
 
+<style lang="scss" scoped>
+ * {
+     font-size: 1rem;
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+h1 {font-size: 2rem;}
+
+body{
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma;
+    background-color: #efefef;
+    color: #333;
+}
+#app {
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    min-height: 100vh;
+}
+.slide-in-enter {
+    opacity: 0;
+    transform: scale(0.5);
+}
+.slide-in-enter-active{
+    transition: all .4s ease;
+}
+.card-1-1{
+    grid-column: span 1;
+}
+.card-2-1{
+    grid-column: span 2;
+}
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:10px;
+}
 </style>

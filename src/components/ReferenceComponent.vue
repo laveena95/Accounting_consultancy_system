@@ -6,8 +6,8 @@
         <h2 class="body-1 text-center">
             Our clientele includes a diverse group of partnerships, limited liability companies, associations and foundations, and our customer turnover is limited.
         </h2>
-    <v-row class="ma-10 ">
-        <v-col cols="12" md="4" v-for="item in items" :key="item.id">
+    <v-row class="ma-3 ">
+        <v-col cols="12" md="4" sm="4" v-for="item in items" :key="item.id">
                 <v-hover v-slot:default="{ hover }">
                     <v-card
                     class="mx-auto"
