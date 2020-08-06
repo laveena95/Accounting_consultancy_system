@@ -1,6 +1,6 @@
 <template>
   <v-layout row align-center justify-center >
-      <v-col cols="12" md="9">
+      <v-col cols="12" md="8">
           <v-card class="mt-6" flat align="center" justify="center">
             <v-card-title primary-title class="layout justify-center mt-8"><div style="border-left:5px solid #07173a"><h2 class="ma-2">5 hyvää syytä valita Accountor Online taloushallintopalvelu</h2></div></v-card-title>
                 <v-expansion-panels focusable flat class="mt-6">

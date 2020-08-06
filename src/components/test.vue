@@ -1,71 +1,76 @@
 <template>
-  <div id="app">
-      <transition appear="" name="slide-in">
-        <h1>gallery</h1>
-      </transition>
-      <div class="grid-wrapper">
-                  <v-card v-for="item in cards" :key="item.img" class="mx-auto" width="200" height="200">
-                    <v-img :src="item.img" size="100">
-                    </v-img>
-                </v-card>
-      </div>
-  </div>
+    <v-layout row align-center justify-center class="ma-8">
+       <v-card flat="">
+           <v-card-title>
+               <hr style="width:40px; height: 3px; background-color: cyan;"><h1 class="text-center font-weight-regular;">CHECK OUR REFERENCES</h1>
+           </v-card-title>
+       </v-card>
+        <h2 class="body-1 text-center ma-5">
+            Our clientele includes a diverse group of partnerships, limited liability companies, associations and foundations, and our customer turnover is limited.
+        </h2>
+      <v-col cols="12" md="4" v-for="item in items" :key="item.id" >
+        <v-hover>
+            <template v-slot:default="{ hover }">
+            <v-card
+                class="mx-auto"
+                elevation="10"
+            >
+                <v-img :aspect-ratio="16/9" :src="item.img"></v-img>
+                <v-fade-transition>
+                <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#036358"
+                >
+                    <v-btn rounded="">See more info</v-btn>
+                    <v-btn class="mx-2" fab dark small color="">
+                        <v-icon dark>mdi-eye</v-icon>
+                    </v-btn>
+                </v-overlay>
+                </v-fade-transition>
+            </v-card>
+            </template>
+        </v-hover>
+      </v-col>
+    </v-layout>
 </template>
 
 <script>
-export default {
- data: () => {
-     return{
-         cards: [
-                {img: require('../assets/img/1.jpg'), grid: 'card-2-1'},
-                {img: require('../assets/img/2.jpg'), grid: 'card-1-1'},
-                {img: require('../assets/img/3.jpg'), grid: 'card-1-1'},
-                {img: require('../assets/img/4.jpg'), grid: 'card-2-1'},
-                {img: require('../assets/img/5.jpg'), grid: 'card-1-1'},
-                {img: require('../assets/img/1.jpg'), grid: 'card-1-1'},
-         ]
-     }
- }
-}
+  export default {
+    data: () => ({
+      overlay: false,
+      items: [
+                    {
+                        id: '1',
+                        img: require('../assets/img/1.jpg'),
+                        text: 'Loreum ipsum',
+                    },
+                    {
+                        id: '2',
+                        img: require('../assets/img/2.jpg'),
+                        text: 'Loreum ipsum',
+                    },
+                    {
+                        id: '3',
+                        img: require('../assets/img/3.jpg'),
+                        text: 'Loreum ipsum',
+                    },
+                    {
+                        id: '4',
+                        img: require('../assets/img/4.jpg'),
+                        text: 'Loreum ipsum',
+                    },
+                    {
+                        id: '5',
+                        img: require('../assets/img/5.jpg'),
+                        text: 'Loreum ipsum',
+                    },
+                    {
+                        id: '6',
+                        img: require('../assets/img/6.jpg'),
+                        text: 'Loreum ipsum',
+                    }
+                ]
+    }),
+  }
 </script>
-
-<style lang="scss" scoped>
- * {
-     font-size: 1rem;
-     padding: 0;
-     margin: 0;
-     box-sizing: border-box;
-}
-h1 {font-size: 2rem;}
-
-body{
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma;
-    background-color: #efefef;
-    color: #333;
-}
-#app {
-    position: relative;
-    padding: 10px;
-    width: 100%;
-    min-height: 100vh;
-}
-.slide-in-enter {
-    opacity: 0;
-    transform: scale(0.5);
-}
-.slide-in-enter-active{
-    transition: all .4s ease;
-}
-.card-1-1{
-    grid-column: span 1;
-}
-.card-2-1{
-    grid-column: span 2;
-}
-.grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-gap:10px;
-}
-</style>

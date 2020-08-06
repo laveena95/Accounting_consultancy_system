@@ -1,45 +1,45 @@
 <template>
-<v-container fluid>
-    <div>
-        <h1 class="text-center font-weight-regular;">CHECK OUR REFERENCES</h1>
-    </div>
-        <h2 class="body-1 text-center">
+    <v-layout row align-center justify-center class="ma-8">
+       <v-card flat="">
+           <v-card-title>
+               <hr style="width:40px; height: 3px; background-color: cyan;"><h1 class="text-center font-weight-regular;">CHECK OUR REFERENCES</h1>
+           </v-card-title>
+       </v-card>
+        <h2 class="body-1 text-center ma-5">
             Our clientele includes a diverse group of partnerships, limited liability companies, associations and foundations, and our customer turnover is limited.
         </h2>
-    <v-row class="ma-3 ">
-        <v-col cols="12" md="4" sm="4" v-for="item in items" :key="item.id">
-                <v-hover v-slot:default="{ hover }">
-                    <v-card
-                    class="mx-auto"
-                    color="grey lighten-4"
-                    >
-                    <v-img
-                        :aspect-ratio="16/9"
-                        :src="item.img"
-                    >
-                        <v-expand-transition>
-                            
-                        <div
-                            v-if="hover"
-                            class="d-flex transition-fast-in-fast-out white darken-2 v-card--reveal display-3 black--text ma-2"
-                            style="height: 94%;"
-                        >
-                            <p class="body-1 text-center" absolute> {{ item.text}} </p>
-                        </div>
-                        </v-expand-transition>
-                    </v-img>
-                    </v-card>
-                </v-hover>
-        </v-col>
-    </v-row>
-</v-container>
+      <v-col cols="12" md="4" v-for="item in items" :key="item.id" >
+        <v-hover>
+            <template v-slot:default="{ hover }">
+            <v-card
+                class="mx-auto"
+                elevation="10"
+            >
+                <v-img :aspect-ratio="16/9" :src="item.img"></v-img>
+                <v-fade-transition>
+                <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#036358"
+                >
+                    <v-btn rounded="">See more info</v-btn>
+                    <v-btn class="mx-2" fab dark small color="">
+                        <v-icon dark>mdi-eye</v-icon>
+                    </v-btn>
+                </v-overlay>
+                </v-fade-transition>
+            </v-card>
+            </template>
+        </v-hover>
+      </v-col>
+    </v-layout>
 </template>
 
 <script>
-    export default {
-        data () {
-            return {
-                items: [
+  export default {
+    data: () => ({
+      overlay: false,
+      items: [
                     {
                         id: '1',
                         img: require('../assets/img/1.jpg'),
@@ -71,19 +71,6 @@
                         text: 'Loreum ipsum',
                     }
                 ]
-            }
-        }
-    }
+    }),
+  }
 </script>
-
-
-<style>
-.v-card--reveal {
-  align-items: center;
-  bottom: 0;
-  justify-content: center;
-  opacity: .7;
-  position: absolute;
-  width: 100%;
-}
-</style>
